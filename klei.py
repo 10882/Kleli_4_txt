@@ -67,13 +67,16 @@ class Kleiapp(App):
         self.f2 = secf1le[0]
 
     def klei(self, instance):
-        f1 = open(self.f1, 'r')
-        f2 = open(self.f2, 'r')
-        result = open(os.path.expanduser("~")+'\\desktop\\result.txt', 'w')
-        t1 = f1.read()
-        t2 = f2.read()
-        f1.close()
-        f2.close()
-        result.write(t1+'\n'+t2)
-        result.close
+        try:
+            f1 = open(self.f1, 'r')
+            f2 = open(self.f2, 'r')
+            result = open(os.path.expanduser("~")+'\\desktop\\result.txt', 'w')
+            t1 = f1.read()
+            t2 = f2.read()
+            f1.close()
+            f2.close()
+            result.write(t1+'\n'+t2)
+            result.close
+        except:
+            instance.text = 'No file selected'
 Kleiapp().run()
